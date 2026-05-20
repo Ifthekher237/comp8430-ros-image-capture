@@ -1,0 +1,5 @@
+  File "/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py", line 51
+    default='captured_images'
+            
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+

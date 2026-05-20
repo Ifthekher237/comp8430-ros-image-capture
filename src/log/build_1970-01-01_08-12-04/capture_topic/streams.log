@@ -1,0 +1,42 @@
+[4.943s] Invoking command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data
+[5.971s] running egg_info
+[5.972s] creating ../build/capture_topic/capture_topic.egg-info
+[6.025s] writing ../build/capture_topic/capture_topic.egg-info/PKG-INFO
+[6.027s] writing dependency_links to ../build/capture_topic/capture_topic.egg-info/dependency_links.txt
+[6.030s] writing entry points to ../build/capture_topic/capture_topic.egg-info/entry_points.txt
+[6.030s] writing requirements to ../build/capture_topic/capture_topic.egg-info/requires.txt
+[6.031s] writing top-level names to ../build/capture_topic/capture_topic.egg-info/top_level.txt
+[6.031s] writing manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+[6.137s] reading manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+[6.137s] writing manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+[6.138s] running build
+[6.138s] running build_py
+[6.138s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build
+[6.138s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib
+[6.138s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+[6.139s] copying capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+[6.139s] copying capture_topic/__init__.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+[6.139s] running install
+[6.155s] running install_lib
+[6.209s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic
+[6.209s] copying /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic
+[6.209s] copying /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic/__init__.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic
+[6.212s] byte-compiling /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py to capture_sub.cpython-310.pyc
+[6.213s] byte-compiling /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/__init__.py to __init__.cpython-310.pyc
+[6.213s]   File "/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py", line 38
+[6.214s]     self.save_id = 
+[6.214s]                    ^
+[6.215s] SyntaxError: invalid syntax
+[6.215s] 
+[6.215s] running install_data
+[6.215s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index
+[6.215s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index/resource_index
+[6.216s] creating /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index/resource_index/packages
+[6.216s] copying resource/capture_topic -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index/resource_index/packages
+[6.216s] copying package.xml -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic
+[6.216s] running install_egg_info
+[6.273s] Copying ../build/capture_topic/capture_topic.egg-info to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic-0.0.0-py3.10.egg-info
+[6.274s] running install_scripts
+[6.720s] Installing capture_subscriber script to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/capture_topic
+[6.721s] writing list of installed files to '/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log'
+[6.838s] Invoked command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic' returned '0': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data

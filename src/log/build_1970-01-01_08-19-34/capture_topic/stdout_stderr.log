@@ -1,0 +1,30 @@
+running egg_info
+writing ../build/capture_topic/capture_topic.egg-info/PKG-INFO
+writing dependency_links to ../build/capture_topic/capture_topic.egg-info/dependency_links.txt
+writing entry points to ../build/capture_topic/capture_topic.egg-info/entry_points.txt
+writing requirements to ../build/capture_topic/capture_topic.egg-info/requires.txt
+writing top-level names to ../build/capture_topic/capture_topic.egg-info/top_level.txt
+reading manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+writing manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+running build
+running build_py
+copying capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+copying capture_topic/__init__.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+running install
+running install_lib
+copying /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic
+byte-compiling /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py to capture_sub.cpython-310.pyc
+  File "/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py", line 38
+    self.save_id = (self.save)id +1) % self.num_max
+                                   ^
+SyntaxError: unmatched ')'
+
+running install_data
+copying resource/capture_topic -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index/resource_index/packages
+copying package.xml -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic
+running install_egg_info
+removing '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/capture_topic/capture_topic.egg-info to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic-0.0.0-py3.10.egg-info
+running install_scripts
+Installing capture_subscriber script to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/capture_topic
+writing list of installed files to '/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log'

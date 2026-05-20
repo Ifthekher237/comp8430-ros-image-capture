@@ -1,0 +1,117 @@
+[0.451s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/home/ubuntu/.local/bin/colcon', 'build'][0m
+[0.451s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=6, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0xffff68ea90c0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff690b4070>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff690b4070>>)[0m
+[0.565s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[0.566s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/ubuntu/Desktop/48546356/comp8430_week10/src'
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[0.567s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[0.568s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[0.568s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[0.568s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[0.611s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[0.612s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[0.612s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[0.612s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[0.612s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[0.612s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.613s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[0.613s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[0.615s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extensions ['ignore', 'ignore_ament_install']
+[0.615s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extension 'ignore'
+[0.615s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extension 'ignore_ament_install'
+[0.615s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extensions ['colcon_pkg']
+[0.616s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extension 'colcon_pkg'
+[0.616s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extensions ['colcon_meta']
+[0.616s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extension 'colcon_meta'
+[0.616s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extensions ['ros']
+[0.616s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(capture_topic) by extension 'ros'
+[0.623s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'capture_topic' with type 'ros.ament_python' and name 'capture_topic'[0m
+[0.623s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.623s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[0.624s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[0.624s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.624s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[0.624s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[0.624s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[0.624s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[0.625s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[0.625s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[0.625s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[0.673s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[0.674s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[0.683s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 1 installed packages in /home/ubuntu/Desktop/48546356/comp8430_week10/src/install[0m
+[0.685s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 14 installed packages in /home/ubuntu/third_party_ros2/rtabmap_ws/install[0m
+[0.688s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 3 installed packages in /home/ubuntu/third_party_ros2/orbbec_ws/install[0m
+[0.691s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 15 installed packages in /home/ubuntu/third_party_ros2/third_party_ws/install[0m
+[0.694s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 19 installed packages in /home/ubuntu/ros2_ws/install[0m
+[0.697s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 357 installed packages in /opt/ros/humble[0m
+[0.701s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_args' from command line to 'None'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_target' from command line to 'None'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_clean_cache' from command line to 'False'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_clean_first' from command line to 'False'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'cmake_force_configure' from command line to 'False'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'ament_cmake_args' from command line to 'None'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'catkin_cmake_args' from command line to 'None'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'capture_topic' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.815s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'capture_topic' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic', 'merge_install': False, 'path': '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic', 'symlink_install': False, 'test_result_base': None}[0m
+[0.816s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[0.819s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[0.819s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic' with build type 'ament_python'
+[0.820s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('capture_topic', 'ament_prefix_path')
+[0.827s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.828s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/ament_prefix_path.ps1'
+[0.830s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/ament_prefix_path.dsv'
+[0.832s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/ament_prefix_path.sh'
+[0.834s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.834s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[2.290s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic'
+[2.291s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.291s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[5.119s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data[0m
+[7.598s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic' returned '0': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data[0m
+[7.611s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic' for CMake module files
+[7.612s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic' for CMake config files
+[7.617s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib'
+[7.618s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/bin'
+[7.618s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/pkgconfig/capture_topic.pc'
+[7.620s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages'
+[7.620s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('capture_topic', 'pythonpath')
+[7.621s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/pythonpath.ps1'
+[7.623s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/pythonpath.dsv'
+[7.625s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/hook/pythonpath.sh'
+[7.629s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/bin'
+[7.630s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(capture_topic)
+[7.631s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/package.ps1'
+[7.635s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/package.dsv'
+[7.638s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/package.sh'
+[7.641s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/package.bash'
+[7.644s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic/package.zsh'
+[7.648s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/colcon-core/packages/capture_topic)
+[7.652s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[7.654s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[7.654s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '0'[0m
+[7.654s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[7.755s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[7.755s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[7.756s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[7.809s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[7.810s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/local_setup.ps1'
+[7.814s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/_local_setup_util_ps1.py'
+[7.820s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/setup.ps1'
+[7.834s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/local_setup.sh'
+[7.836s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/_local_setup_util_sh.py'
+[7.839s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/setup.sh'
+[7.853s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/local_setup.bash'
+[7.855s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/setup.bash'
+[7.866s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/local_setup.zsh'
+[7.872s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/setup.zsh'

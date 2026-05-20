@@ -1,0 +1,32 @@
+[4.286s] Invoking command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data
+[5.377s] running egg_info
+[5.457s] writing ../build/capture_topic/capture_topic.egg-info/PKG-INFO
+[5.462s] writing dependency_links to ../build/capture_topic/capture_topic.egg-info/dependency_links.txt
+[5.462s] writing entry points to ../build/capture_topic/capture_topic.egg-info/entry_points.txt
+[5.462s] writing requirements to ../build/capture_topic/capture_topic.egg-info/requires.txt
+[5.463s] writing top-level names to ../build/capture_topic/capture_topic.egg-info/top_level.txt
+[5.591s] reading manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+[5.595s] writing manifest file '../build/capture_topic/capture_topic.egg-info/SOURCES.txt'
+[5.595s] running build
+[5.595s] running build_py
+[5.596s] copying capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+[5.596s] copying capture_topic/__init__.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic
+[5.596s] running install
+[5.611s] running install_lib
+[5.672s] copying /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build/lib/capture_topic/capture_sub.py -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic
+[5.673s] byte-compiling /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py to capture_sub.cpython-310.pyc
+[5.673s]   File "/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic/capture_sub.py", line 38
+[5.673s]     self.save_id = (self.save)id +1) % self.num_max
+[5.673s]                                    ^
+[5.674s] SyntaxError: unmatched ')'
+[5.674s] 
+[5.674s] running install_data
+[5.674s] copying resource/capture_topic -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/ament_index/resource_index/packages
+[5.674s] copying package.xml -> /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/share/capture_topic
+[5.674s] running install_egg_info
+[5.726s] removing '/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic-0.0.0-py3.10.egg-info' (and everything under it)
+[5.734s] Copying ../build/capture_topic/capture_topic.egg-info to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages/capture_topic-0.0.0-py3.10.egg-info
+[5.734s] running install_scripts
+[6.295s] Installing capture_subscriber script to /home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/capture_topic
+[6.297s] writing list of installed files to '/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log'
+[6.409s] Invoked command in '/home/ubuntu/Desktop/48546356/comp8430_week10/src/capture_topic' returned '0': PYTHONPATH=/home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/prefix_override:/home/ubuntu/Desktop/48546356/comp8430_week10/src/install/capture_topic/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/capture_topic build --build-base /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/build install --record /home/ubuntu/Desktop/48546356/comp8430_week10/src/build/capture_topic/install.log --single-version-externally-managed install_data

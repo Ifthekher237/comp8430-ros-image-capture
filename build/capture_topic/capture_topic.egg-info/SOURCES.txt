@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/capture_topic/capture_topic.egg-info/PKG-INFO
+../../build/capture_topic/capture_topic.egg-info/SOURCES.txt
+../../build/capture_topic/capture_topic.egg-info/dependency_links.txt
+../../build/capture_topic/capture_topic.egg-info/entry_points.txt
+../../build/capture_topic/capture_topic.egg-info/requires.txt
+../../build/capture_topic/capture_topic.egg-info/top_level.txt
+../../build/capture_topic/capture_topic.egg-info/zip-safe
+capture_topic/__init__.py
+capture_topic/capture_sub.py
+resource/capture_topic
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

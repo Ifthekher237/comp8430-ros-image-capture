@@ -1,0 +1,2 @@
+[console_scripts]
+capture_subscriber = capture_topic.capture_sub:main
