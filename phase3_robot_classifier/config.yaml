@@ -1,0 +1,89 @@
+# ============================================================
+# COMP8430 Phase 3 — Central Configuration
+# ============================================================
+
+# --- Three selected deployment classes ---
+# These are the ONLY classes used for robot actions and fine-tuning
+three_classes:
+  - Cocacola_classic
+  - Sprite
+  - Fanta_orange
+
+# Robot action mapping (one distinct action per class)
+# Used in robot_action_node and camera_classifier_action_node
+robot_actions:
+  Cocacola_classic: "forward"      # move forward toward it
+  Sprite:           "rotate_left"  # rotate left
+  Fanta_orange:     "rotate_right" # rotate right
+
+# --- Dataset paths ---
+all_class_data_dir:        "../dataset/clean_dataset"
+robot_images_dir:          "../dataset/robot_captured"      # all 20 classes captured by robot
+robot_split_dir:           "../dataset/robot_split"         # train/val/test split of robot images
+three_class_robot_dir:     "../dataset/three_class_robot"   # 3-class subset for final fine-tune
+
+# --- Model ---
+model_arch: "mobilenet_v3_large"
+image_size: 224
+dropout: 0.3
+weight_decay: 0.0001
+
+# --- Training ---
+batch_size: 16
+num_workers: 2
+learning_rate: 0.001
+
+all_class_epochs:        20   # Phase 2 style — all classes, clean dataset
+robot_finetune_epochs:   20   # Fine-tune on robot images — all 20 classes
+three_class_epochs:      15   # Final fine-tune — 3 classes only
+
+# Train/val/test split
+train_ratio: 0.70
+val_ratio:   0.15
+test_ratio:  0.15
+
+# --- Output paths ---
+model_dir: "outputs/models"
+log_dir:   "outputs/logs"
+plot_dir:  "outputs/plots"
+pred_dir:  "outputs/predictions"
+
+# Model filenames
+all_class_model_name:          "all_class_model.pth"
+all_class_map_name:            "all_class_class_to_idx.json"
+robot_finetuned_model_name:    "robot_finetuned_model.pth"
+robot_finetuned_map_name:      "robot_finetuned_class_to_idx.json"
+three_class_model_name:        "three_class_robot_model.pth"
+three_class_map_name:          "three_class_class_to_idx.json"
+
+# --- Inference ---
+confidence_threshold: 0.70
+
+# --- ROI / Contour detection ---
+roi_blur_kernel:    7
+roi_canny_low:      30
+roi_canny_high:     100
+roi_dilate_iters:   3
+roi_min_area:       4000
+roi_max_area_ratio: 0.85
+roi_padding:        10
+
+# --- ROS2 topics ---
+ros_camera_topic:     "/depth_cam/rgb/image_raw"
+ros_prediction_topic: "/object_classifier/prediction"
+ros_cmd_vel_topic:    "/cmd_vel"
+
+# --- Robot behaviour ---
+search_angular_vel:       0.3
+consecutive_frames_needed: 5
+center_tolerance_px:      80
+align_angular_gain:       0.003
+approach_linear_vel:      0.1
+approach_angular_gain:    0.001
+arrival_bbox_area:        40000
+max_approach_time:        8.0
+
+# Action velocities per class
+action_forward_linear:      0.1
+action_rotate_left_angular:  0.5
+action_rotate_right_angular: -0.5
