@@ -58,3 +58,12 @@ log/
 
 # Logs
 *.log
+# Large files — never commit these
+dataset/
+outputs/models/
+outputs/logs/
+outputs/plots/
+outputs/predictions/
+*.pth
+*.pt
+yolov8n.pt
