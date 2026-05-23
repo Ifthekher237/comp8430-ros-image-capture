@@ -1,20 +1,29 @@
 #!/usr/bin/env python3
 # ============================================================
 # webcam_test_all_classes.py
-# Test classifier on LAPTOP WEBCAM. No ROS2. No robot.
-# Works with any model (20-class or 3-class).
 #
-# Usage — all 20 classes:
+# How it works:
+#   1. YOLOv8n detects cans (bottle/cup class) in the frame
+#   2. Draws a TIGHT box exactly around each can
+#   3. Crops each can region
+#   4. Runs YOUR trained classifier on each crop
+#   5. Shows the drink brand label + confidence on the box
+#
+# Only cans are detected. Faces, bodies, furniture = ignored.
+#
+# First run: YOLOv8n downloads ~6MB model automatically.
+#
+# Usage:
 #   python webcam_test_all_classes.py \
-#     --model-path outputs/models/robot_finetuned_model.pth \
-#     --class-map  outputs/models/robot_finetuned_class_to_idx.json
+#     --model-path outputs/models/all_class_model.pth \
+#     --class-map  outputs/models/all_class_class_to_idx.json
 #
-# Usage — 3 classes:
-#   python webcam_test_all_classes.py \
-#     --model-path outputs/models/three_class_robot_model.pth \
-#     --class-map  outputs/models/three_class_class_to_idx.json
-#
-# Keys: q=quit  s=save frame  +=raise threshold  -=lower  d=debug
+# Keys:
+#   q  — quit
+#   s  — save current frame
+#   d  — debug mode (shows ALL yolo detections)
+#   +  — raise classifier confidence threshold
+#   -  — lower classifier confidence threshold
 # ============================================================
 
 import os, sys, argparse, time, yaml
@@ -24,133 +33,170 @@ sys.path.insert(0, os.path.dirname(__file__))
 from utils.model_utils     import load_checkpoint, get_device
 from utils.inference_utils import (get_inference_transform,
                                    detect_and_classify,
-                                   draw_detections, detect_rois)
+                                   draw_detections,
+                                   draw_debug_yolo)
 
 
 def parse_args():
     p = argparse.ArgumentParser()
-    p.add_argument('--model-path',  default='outputs/models/robot_finetuned_model.pth')
-    p.add_argument('--class-map',   default='outputs/models/robot_finetuned_class_to_idx.json')
+    p.add_argument('--model-path',  default='outputs/models/all_class_model.pth')
+    p.add_argument('--class-map',   default='outputs/models/all_class_class_to_idx.json')
     p.add_argument('--camera-id',   type=int,   default=0)
-    p.add_argument('--conf-thresh', type=float, default=0.60)
+    p.add_argument('--conf-thresh', type=float, default=0.60,
+                   help='Classifier confidence threshold (0.0-1.0)')
+    p.add_argument('--yolo-conf',   type=float, default=0.25,
+                   help='YOLO detection confidence (lower = find more cans)')
     p.add_argument('--width',       type=int,   default=640)
     p.add_argument('--height',      type=int,   default=480)
     p.add_argument('--config',      default='config.yaml')
     return p.parse_args()
 
 
-def draw_debug(frame, roi_params):
-    gray    = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    blurred = cv2.GaussianBlur(gray, (roi_params['blur_kernel'],)*2, 0)
-    edges   = cv2.Canny(blurred, roi_params['canny_low'], roi_params['canny_high'])
-    kernel  = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-    dilated = cv2.dilate(edges, kernel, iterations=roi_params['dilate_iters'])
-    cnts, _ = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    debug   = frame.copy()
-    cv2.drawContours(debug, cnts, -1, (0, 255, 255), 1)
-    cv2.putText(debug, 'DEBUG — raw contours', (10, 30),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
-    return debug
+def open_camera(camera_id, width, height):
+    """Try to open the MacBook camera — handles Continuity Camera."""
+    # Try AVFoundation backend first (macOS native)
+    for idx in [camera_id, 0, 1, 2]:
+        for backend in [cv2.CAP_AVFOUNDATION, cv2.CAP_ANY]:
+            cap = cv2.VideoCapture(idx, backend)
+            if cap.isOpened():
+                cap.set(cv2.CAP_PROP_FRAME_WIDTH,  width)
+                cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
+                print(f'  Camera {idx} opened.')
+                return cap
+            cap.release()
+    return None
 
 
 def main():
     args = parse_args()
-    cfg  = yaml.safe_load(open(args.config)) if os.path.exists(args.config) else {}
-    os.makedirs(cfg.get('pred_dir', 'outputs/predictions'), exist_ok=True)
+    cfg  = yaml.safe_load(open(args.config)) \
+           if os.path.exists(args.config) else {}
+    os.makedirs('outputs/predictions', exist_ok=True)
 
+    # ---- Load YOUR classifier ----
     device = get_device()
-    print(f'\nLoading: {args.model_path}')
+    print(f'\nLoading classifier: {args.model_path}')
     model, class_to_idx, idx_to_class = load_checkpoint(
         args.model_path, device=str(device))
-
     num_classes = len(class_to_idx)
-    print(f'Classes loaded: {num_classes}')
-    for name, idx in sorted(class_to_idx.items(), key=lambda x: x[1]):
-        print(f'  [{idx:2d}] {name}')
+    print(f'  {num_classes} classes loaded.')
 
-    transform  = get_inference_transform(cfg.get('image_size', 224))
-    roi_params = {
-        'blur_kernel':    cfg.get('roi_blur_kernel',    7),
-        'canny_low':      cfg.get('roi_canny_low',     30),
-        'canny_high':     cfg.get('roi_canny_high',   100),
-        'dilate_iters':   cfg.get('roi_dilate_iters',   3),
-        'min_area':       cfg.get('roi_min_area',    4000),
-        'max_area_ratio': cfg.get('roi_max_area_ratio', 0.85),
-        'padding':        cfg.get('roi_padding',       10),
-    }
+    # ---- Load YOLO (triggers download on first run) ----
+    print('\nLoading YOLOv8n detector ...')
+    from utils.inference_utils import _get_yolo
+    _get_yolo()
 
+    transform   = get_inference_transform(cfg.get('image_size', 224))
     conf_thresh = args.conf_thresh
+    yolo_conf   = args.yolo_conf
     debug_mode  = False
 
-    cap = cv2.VideoCapture(args.camera_id)
-    if not cap.isOpened():
-        print(f'ERROR: Camera {args.camera_id} not found. Try --camera-id 1')
+    # ---- Open camera ----
+    print(f'\nOpening camera ...')
+    cap = open_camera(args.camera_id, args.width, args.height)
+    if cap is None:
+        print('ERROR: No camera found.')
+        print('  Disconnect iPhone or disable Continuity Camera.')
+        print('  System Settings → General → AirPlay & Handoff → Continuity Camera OFF')
         sys.exit(1)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH,  args.width)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, args.height)
 
-    print('\nWebcam running — q=quit  s=save  +=thresh up  -=thresh down  d=debug\n')
+    print('\n--- Webcam running ---')
+    print('  Point camera at any drink can')
+    print('  YOLO finds the can → your model names the brand')
+    print('  q=quit  s=save  d=debug  +=conf up  -=conf down\n')
 
     frame_count = 0
     fps_timer   = time.time()
     fps_display = 0.0
-    annotated   = None
+    last_frame  = None
 
     while True:
         ret, frame = cap.read()
         if not ret:
+            print('Camera read failed.')
             break
+
         frame_count += 1
 
+        # ---- Debug mode — see raw YOLO output ----
         if debug_mode:
-            display = draw_debug(frame, roi_params)
+            display = draw_debug_yolo(frame)
+            cv2.putText(display,
+                        'd=exit debug  q=quit',
+                        (10, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.5, (0, 255, 255), 1)
+
+        # ---- Normal mode — YOLO detect + classify ----
         else:
             detections = detect_and_classify(
-                frame, model, idx_to_class, transform, device,
-                conf_thresh, **roi_params)
-            annotated = draw_detections(frame, detections, conf_thresh)
+                frame, model, idx_to_class,
+                transform, device,
+                confidence_threshold=conf_thresh,
+                padding=8)
 
+            display    = draw_detections(frame, detections, conf_thresh)
+            last_frame = display.copy()
+
+            # FPS every 30 frames
             if frame_count % 30 == 0:
                 elapsed     = time.time() - fps_timer
                 fps_display = 30.0 / elapsed if elapsed > 0 else 0.0
                 fps_timer   = time.time()
 
             above = [d for d in detections if d['above_threshold']]
-            status = (f'FPS:{fps_display:.1f}  Model:{num_classes}cls  '
-                      f'Thresh:{conf_thresh:.2f}  Det:{len(above)}  '
-                      f'+/-thresh  d=debug  s=save  q=quit')
-            cv2.rectangle(annotated, (0, 0),
-                          (annotated.shape[1], 46), (30, 30, 30), cv2.FILLED)
-            cv2.putText(annotated, status, (8, 30),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.42,
-                        (200, 200, 200), 1, cv2.LINE_AA)
-            for i, d in enumerate(above[:10]):
-                cv2.putText(annotated,
-                            f"{d['label']} ({d['confidence']:.2f})",
-                            (annotated.shape[1] - 270, 70 + i * 22),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.46,
-                            (0, 230, 0), 1, cv2.LINE_AA)
-            display = annotated
+            total = len(detections)
 
-        cv2.imshow('Phase 3 — Laptop Webcam', display)
+            # HUD bar at top
+            cv2.rectangle(display, (0, 0),
+                          (display.shape[1], 48),
+                          (20, 20, 20), cv2.FILLED)
+            hud = (f'FPS:{fps_display:.1f}  '
+                   f'Model:{num_classes}cls  '
+                   f'Cans found:{total}  '
+                   f'Confident:{len(above)}  '
+                   f'Thresh:{conf_thresh:.2f}  '
+                   f'+/-  d=debug  s=save  q=quit')
+            cv2.putText(display, hud, (8, 32),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.40,
+                        (200, 200, 200), 1, cv2.LINE_AA)
+
+            # If nothing found — show hint
+            if total == 0:
+                cv2.putText(
+                    display,
+                    'No can detected — point at a drink can',
+                    (display.shape[1]//2 - 180,
+                     display.shape[0]//2),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.55,
+                    (80, 80, 80), 1, cv2.LINE_AA)
+
+        cv2.imshow('Phase 3 — Can Detector (YOLO + MobileNetV3)',
+                   display)
         key = cv2.waitKey(1) & 0xFF
 
-        if   key == ord('q'):
+        if key == ord('q'):
+            print('Quit.')
             break
-        elif key == ord('s') and annotated is not None:
-            ts   = int(time.time())
-            path = os.path.join('outputs/predictions', f'laptop_{ts}.jpg')
-            cv2.imwrite(path, display)
-            print(f'  Saved: {path}')
+
+        elif key == ord('s'):
+            if last_frame is not None:
+                ts   = int(time.time())
+                path = f'outputs/predictions/webcam_{ts}.jpg'
+                cv2.imwrite(path, last_frame)
+                print(f'  Saved → {path}')
+
         elif key in (ord('+'), ord('=')):
             conf_thresh = min(0.99, round(conf_thresh + 0.05, 2))
-            print(f'  Threshold → {conf_thresh}')
+            print(f'  Classifier threshold → {conf_thresh}')
+
         elif key == ord('-'):
-            conf_thresh = max(0.10, round(conf_thresh - 0.05, 2))
-            print(f'  Threshold → {conf_thresh}')
+            conf_thresh = max(0.05, round(conf_thresh - 0.05, 2))
+            print(f'  Classifier threshold → {conf_thresh}')
+
         elif key == ord('d'):
             debug_mode = not debug_mode
-            print(f'  Debug: {"ON" if debug_mode else "OFF"}')
+            print(f'  Debug mode: {"ON — showing raw YOLO" if debug_mode else "OFF"}')
 
     cap.release()
     cv2.destroyAllWindows()

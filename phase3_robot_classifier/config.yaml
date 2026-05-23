@@ -57,16 +57,16 @@ three_class_model_name:        "three_class_robot_model.pth"
 three_class_map_name:          "three_class_class_to_idx.json"
 
 # --- Inference ---
-confidence_threshold: 0.70
+confidence_threshold: 0.85
 
 # --- ROI / Contour detection ---
-roi_blur_kernel:    7
-roi_canny_low:      30
-roi_canny_high:     100
-roi_dilate_iters:   3
-roi_min_area:       4000
-roi_max_area_ratio: 0.85
-roi_padding:        10
+roi_blur_kernel:    11       # stronger blur kills small noise edges
+roi_canny_low:      50       # higher = only strong edges detected
+roi_canny_high:     150      # higher = ignores weak gradients
+roi_dilate_iters:   2        # less dilation = less merging of junk
+roi_min_area:       15000    # much bigger = only large objects count
+roi_max_area_ratio: 0.60     # ignore anything too large (background)
+roi_padding:        5
 
 # --- ROS2 topics ---
 ros_camera_topic:     "/depth_cam/rgb/image_raw"
