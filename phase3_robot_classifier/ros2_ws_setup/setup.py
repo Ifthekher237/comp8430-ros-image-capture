@@ -15,18 +15,15 @@ setup(
     zip_safe=True,
     maintainer='student',
     maintainer_email='student@mq.edu.au',
-    description='COMP8430 Phase 3 — Robot classifier with 3 distinct actions',
+    description='COMP8430 Phase 3',
     license='MIT',
     tests_require=['pytest'],
-    # -------------------------------------------------------
-    # Entry points — Week 8/9 pattern
-    # capture_subscriber = capture_topic.capture_sub:main
-    # move = machine_move.move:main
-    # -------------------------------------------------------
     entry_points={
         'console_scripts': [
+            # Demo 1 — camera only, no movement
             'robot_classifier = robot_classifier.robot_classifier_node:main',
-            'robot_demo       = robot_classifier.camera_classifier_action_node:main',
+            # Demo 2 + 3 — scan mode and target mode
+            'robot_demo = robot_classifier.camera_classifier_action_node:main',
         ],
     },
 )

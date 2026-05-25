@@ -1,0 +1,22 @@
+{
+  "Boss_latte": 0,
+  "Calm_&_Stormy": 1,
+  "Cocacola_classic": 2,
+  "Cocacola_vanilla": 3,
+  "Cocacola_zero": 4,
+  "Fanta_orange": 5,
+  "H2coco": 6,
+  "H2coco_choc": 7,
+  "Kirks": 8,
+  "Monster": 9,
+  "Oxyshred_Passion": 10,
+  "Pepsi": 11,
+  "Pepsi_max": 12,
+  "Redbull_Classic": 13,
+  "Redbull_zero": 14,
+  "Rockstar": 15,
+  "Solo": 16,
+  "Sprite": 17,
+  "Sunkist": 18,
+  "V": 19
+}

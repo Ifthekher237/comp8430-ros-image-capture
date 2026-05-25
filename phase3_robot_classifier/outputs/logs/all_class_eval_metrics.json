@@ -1,0 +1,164 @@
+{
+  "accuracy": 0.972,
+  "precision_macro": 0.969,
+  "recall_macro": 0.9596,
+  "f1_macro": 0.9617,
+  "f1_weighted": 0.9716,
+  "per_class_accuracy": {
+    "Boss_latte": 0.9797979797979798,
+    "Calm_&_Stormy": 1.0,
+    "Cocacola_classic": 1.0,
+    "Cocacola_vanilla": 0.984375,
+    "Cocacola_zero": 0.7076923076923077,
+    "Fanta_orange": 1.0,
+    "H2coco": 1.0,
+    "H2coco_choc": 1.0,
+    "Kirks": 0.9298245614035088,
+    "Monster": 1.0,
+    "Oxyshred_Passion": 0.9970674486803519,
+    "Pepsi": 0.8484848484848485,
+    "Pepsi_max": 0.8275862068965517,
+    "Redbull_Classic": 0.9915254237288136,
+    "Redbull_zero": 1.0,
+    "Rockstar": 1.0,
+    "Solo": 1.0,
+    "Sprite": 0.9775280898876404,
+    "Sunkist": 0.9482758620689655,
+    "V": 1.0
+  },
+  "classification_report": {
+    "Boss_latte": {
+      "precision": 1.0,
+      "recall": 0.9797979797979798,
+      "f1-score": 0.9897959183673469,
+      "support": 99.0
+    },
+    "Calm_&_Stormy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 53.0
+    },
+    "Cocacola_classic": {
+      "precision": 0.8241758241758241,
+      "recall": 1.0,
+      "f1-score": 0.9036144578313253,
+      "support": 75.0
+    },
+    "Cocacola_vanilla": {
+      "precision": 1.0,
+      "recall": 0.984375,
+      "f1-score": 0.9921259842519685,
+      "support": 64.0
+    },
+    "Cocacola_zero": {
+      "precision": 0.9787234042553191,
+      "recall": 0.7076923076923077,
+      "f1-score": 0.8214285714285714,
+      "support": 65.0
+    },
+    "Fanta_orange": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 58.0
+    },
+    "H2coco": {
+      "precision": 0.9801980198019802,
+      "recall": 1.0,
+      "f1-score": 0.99,
+      "support": 99.0
+    },
+    "H2coco_choc": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 85.0
+    },
+    "Kirks": {
+      "precision": 1.0,
+      "recall": 0.9298245614035088,
+      "f1-score": 0.9636363636363636,
+      "support": 57.0
+    },
+    "Monster": {
+      "precision": 0.8350515463917526,
+      "recall": 1.0,
+      "f1-score": 0.9101123595505618,
+      "support": 81.0
+    },
+    "Oxyshred_Passion": {
+      "precision": 0.9970674486803519,
+      "recall": 0.9970674486803519,
+      "f1-score": 0.9970674486803519,
+      "support": 341.0
+    },
+    "Pepsi": {
+      "precision": 0.9491525423728814,
+      "recall": 0.8484848484848485,
+      "f1-score": 0.896,
+      "support": 66.0
+    },
+    "Pepsi_max": {
+      "precision": 0.9795918367346939,
+      "recall": 0.8275862068965517,
+      "f1-score": 0.897196261682243,
+      "support": 58.0
+    },
+    "Redbull_Classic": {
+      "precision": 1.0,
+      "recall": 0.9915254237288136,
+      "f1-score": 0.9957446808510638,
+      "support": 236.0
+    },
+    "Redbull_zero": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 175.0
+    },
+    "Rockstar": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 51.0
+    },
+    "Solo": {
+      "precision": 0.9491525423728814,
+      "recall": 1.0,
+      "f1-score": 0.9739130434782609,
+      "support": 56.0
+    },
+    "Sprite": {
+      "precision": 0.8877551020408163,
+      "recall": 0.9775280898876404,
+      "f1-score": 0.93048128342246,
+      "support": 89.0
+    },
+    "Sunkist": {
+      "precision": 1.0,
+      "recall": 0.9482758620689655,
+      "f1-score": 0.9734513274336283,
+      "support": 58.0
+    },
+    "V": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 61.0
+    },
+    "accuracy": 0.9719771665801764,
+    "macro avg": {
+      "precision": 0.969043413341325,
+      "recall": 0.9596078864320484,
+      "f1-score": 0.9617283850307073,
+      "support": 1927.0
+    },
+    "weighted avg": {
+      "precision": 0.9749518049245701,
+      "recall": 0.9719771665801764,
+      "f1-score": 0.9716073916712618,
+      "support": 1927.0
+    }
+  }
+}
